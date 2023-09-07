@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { ConditionalRendering } from './Component/ConditionalRendering';
-import reportWebVitals from './reportWebVitals';
-import RandomColor from 'randomcolor'
+import {RenderLIST} from "./Component/RenderingList"
 
 
 
@@ -37,7 +36,8 @@ root.render(
     product="condra soda aslya" 
     isTrue={false} 
   />
-  
+
+    <RenderLIST/>
   
   </React.StrictMode>
 );

@@ -19,8 +19,6 @@ function getRandomNumber(low, high) {
   }
 
 
-
-
 export function ConditionalRendering({product,styles,isTrue}){
             if(isTrue){
                 return (<h1 style={{color:getRandomColor(),

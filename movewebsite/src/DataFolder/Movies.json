@@ -1,0 +1,46 @@
+[
+
+    {
+        "id":1,
+        "name":"harry potter 1",
+        "catagory":"magic",
+        "character":"harry potter"
+    },
+    {
+        "id":2,
+        "name":"harry potter 2",
+        "catagory":"magic",
+        "character":"harry potter"
+    }, 
+    {
+        "id":3,
+        "name":"harry potter 3",
+        "catagory":"magic",
+        "character":"harry potter"
+    },
+    {
+        "id":4,
+        "name":"fast and feureos 1",
+        "catagory":"action",
+        "character":"toreto"
+    },
+    {
+        "id":5,
+        "name":"fast and feureos 2",
+        "catagory":"action",
+        "character":"toreto"
+    },
+    {
+        "id":6,
+        "name":"fast and feureos 3",
+        "catagory":"action",
+        "character":"toreto"
+    },
+    {
+        "id":7,
+        "name":"fast and feureos 4",
+        "catagory":"action",
+        "character":"toreto"
+    }
+
+]
