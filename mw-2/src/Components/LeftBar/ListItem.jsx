@@ -1,6 +1,6 @@
 import { ListIcon,ListItem,Text} from "@chakra-ui/react";
-
-function LeftListItem({Icon,ItemText}){
+import {NavLink} from "react-router-dom"
+function LeftListItem({Icon,ItemText,href}){
     return(
         <ListItem color={"white"} >
                 <ListIcon   as={Icon} 
@@ -10,7 +10,7 @@ function LeftListItem({Icon,ItemText}){
                                     paddingLeft={"10px"} 
                                     display={"inline"} 
                                     fontSize={20}>
-                                        {ItemText}
+                                        <NavLink to={href}>{ItemText}</NavLink>
                             </Text> 
         </ListItem>
     )

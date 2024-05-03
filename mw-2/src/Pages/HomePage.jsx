@@ -1,12 +1,13 @@
 import { Flex } from "@chakra-ui/react";
-import LeftSideList from "../Components/LSideList";
-
+import MiddleBar from "../Components/MidBar/MiddleBar";
+import RightSideBar from "../Components/RightBar/RightBar";
 
 
 function HomePage(){
     return(
-        <Flex justifyContent={"space-between"} >
-            <LeftSideList />
+        <Flex flex={7} bg={"black"}>
+            <MiddleBar/>
+            <RightSideBar/>
         </Flex>
     )
 }
