@@ -1,4 +1,4 @@
-import { Box, Input,InputGroup,InputLeftElement } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import SearchBar from "./SearchBar"
 function RightSideBar(){
     return(
@@ -10,14 +10,15 @@ function RightSideBar(){
             borderLeft={"solid"}
             borderLeftColor={"#414040"}
             borderLeftWidth={".5px"}>
+
             <SearchBar/>
+
             <Box bg={"black"}
                     border={"1px solid #414040"}
                     h={"85%"}
                     mt={3}
                     borderRadius={20}
                     >
-
             </Box>
         </Box>
         
