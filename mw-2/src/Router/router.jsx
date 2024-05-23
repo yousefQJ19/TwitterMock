@@ -9,7 +9,7 @@ import  Layout  from "../Router/Layout"
 
 const router =createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Layout/>}>
-        <Route path="Home" element={<HomePage/>}/>
+        <Route index element={<HomePage/>}/>
     </Route>
 ))
 

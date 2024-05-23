@@ -1,14 +1,20 @@
-import { Box, Flex,Image,Button,Input } from "@chakra-ui/react";
-import { useState } from "react";
-import MiddleBarIconList from "./MiddleBarIconList";
+import {Flex,Text } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import {fireStore} from "../../Config/FireBase-Config"
+import {getDocs} from "firebase/firestore"
 import MiddleBarButton from "./MiddleBarButton"
-
+import AddPost from "./AddPost/addPost";
+import { collection } from "firebase/firestore";
+import Post from "./Post/post"
 
 
 function MiddleBar(){
     const [showBorder1, setShowBorder1] = useState(true);
     const [showBorder2, setShowBorder2] = useState(false);
-
+    const[postList,setPostList]=useState([])
+    const [isLoading,setIsLoading] =useState(true)
+    const postListRef= collection(fireStore,"Posts")
+    
     const handleButtonClick = (buttonNumber) => {
         if (buttonNumber === 1) {
             setShowBorder1(true);
@@ -18,18 +24,34 @@ function MiddleBar(){
             setShowBorder2(true); 
         }
     };
+    const getPostList = async ()=>{
+        try{
+            const data= await getDocs(postListRef)
+            const filterdData=data.docs.map((doc)=>({...doc.data(),id:doc.id}))
+            setPostList(filterdData)
+            setIsLoading(false)
+        }
+        catch(err){
+            console.error(err)
+        }
+    }
+    useEffect(()=>{
+        
+        getPostList()
+    },[])
+    if(isLoading){
+        return(<Text>is loading</Text>)
+    }
     return (
         <Flex   flexDirection={"column"}
                 flex={4.5}
-                p={3}>
-
+                >
             <Flex   width={"100%"}
                     h={"fit-content"}
                     justifyContent={"space-between"}
-                    borderBottom={"solid"}
-                    borderBottomColor={"#414040"}
-                    borderBottomWidth={"1px"}>
-
+                    borderBottom={"1px solid #414040"}
+                    borderRight={"1px solid #414040"}>
+                    {/* not that */}
                 <MiddleBarButton
                     showBorder={showBorder1}
                     setShowBorder={() => handleButtonClick(1)}
@@ -42,40 +64,13 @@ function MiddleBar(){
                     context={"Following"}
                 />
             </Flex>
-
-
-            <Flex  
-                    w={"100%"}
-                    p={3}
-                    borderBottom={"solid"}
-                    borderColor={"#414040"}
-                    borderBottomWidth={"1px"}>
-                <Image  src={"/profile-3.png"} 
-                        w={"40px"} 
-                        height={"40px"} 
-                        borderRadius={40}/>
-
-                <Flex   flexDir={"column"} 
-                        h={100}
-                        w={"100%"}>
-                    <Box alignItems={"center"}>
-                        <Input placeholder="Whats is hapining"
-                                w={"100%"}
-                                border={"0"}/>
-                    </Box>
-                    <Flex justifyContent={"space-between"} w={"100%"} alignItems={"center"} pt={6} >
-                        <MiddleBarIconList />
-                        <Button borderRadius={30} 
-                                bg="rgb(29, 155, 240)"
-                                disabled={true} 
-                                color={"white"}>
-                                    post  
-                        </Button>
-                    </Flex>
-                        
-                </Flex>
-                        
+            <AddPost />
+            <Flex w={"100"} flexDirection={"column"} overflow={"hidden"} borderRight={"1px solid #414040"} p={0} >
+                {postList.map((post,index)=>(
+                    <Post data={post} key={index}/>
+                ))}
             </Flex>
+
     </Flex>
     );    
 }

@@ -4,7 +4,7 @@ import { Box, Flex } from "@chakra-ui/react"
 
 function Layout(){
     return(
-        <Flex>
+        <Flex bg={"black"}>
             <LSideList/> 
             <Outlet/>
         </Flex>

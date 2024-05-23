@@ -6,10 +6,8 @@ function RightSideBar(){
             px={8}
             flex={2.9} 
             bg={"Black"} 
-            height={"100vh"}
-            borderLeft={"solid"}
-            borderLeftColor={"#414040"}
-            borderLeftWidth={".5px"}>
+            height={"100vh"}>
+            {/* // borderLeft={"1px solid #414040"} */}
 
             <SearchBar/>
 
