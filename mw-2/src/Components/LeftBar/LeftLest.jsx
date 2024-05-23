@@ -1,4 +1,4 @@
-import { Button, Flex, List} from "@chakra-ui/react";
+import { AbsoluteCenter, Box, Button, Flex, List} from "@chakra-ui/react";
 //importing icons
 import { IoMdHome,IoMdSearch  } from "react-icons/io";
 import { FaXTwitter } from "react-icons/fa6";
@@ -18,43 +18,48 @@ import SideListProfileItem from "./LeftBarProfile";
 //fix the responsiveness
 function LeftSideList(){
     return(
-    <Flex   flexDirection={"column"}
-            flex={1.7}
-            pl={50}
-            pt={3}
-            bg={"black"} 
-            height={"100vh"}
-            border={"solid"}
-            borderColor={"black"}
-            borderWidth={".5px"}
-            borderRightColor={"#414040"}
-            >
+        <Box  height="100vh"
+                bg="black"  
+                overflow="hidden"  
+                width={"320px"} 
+                pr={5}   >
 
-        <FaXTwitter size={30} 
-                    color="white"/>
+            <Flex  pos={"fixed"}
+                    gap={4}
+                    h={"full"}
+                    flexDirection={"column"}
+                    bg={"black"}
+                    pl={8}
+                    width={"320px"}
+                    borderRight={"1px solid #414040"}
+                    >
 
-        <List spacing={5} fontSize={25} pt={6}>
-            <LeftListItem Icon={IoMdHome} ItemText={"Home"} href={"Home"}/>
-            <LeftListItem Icon={IoMdSearch} ItemText={"ُExplore"}/>
-            <LeftListItem Icon={FaRegBell} ItemText={"Notifications"}/>
-            <LeftListItem Icon={BiMessageSquare} ItemText={"Messages"}/>
-            <LeftListItem Icon={MdOutlineFeaturedPlayList} ItemText={"Lists"}/>
-            <LeftListItem Icon={PiBookmarkSimpleLight} ItemText={"Bookmarks"}/>
-            <LeftListItem Icon={FaUserFriends} ItemText={"Communities"}/>
-            <LeftListItem Icon={CgProfile} ItemText={"Profile"}/>
-            <LeftListItem Icon={CiCircleMore} ItemText={"More"}/>
-            <Button 
-                px={10} 
-                py={7} 
-                w={230} 
-                borderRadius={30} 
-                color={"white"} 
-                bg={"rgb(29, 155, 240)"}>
-                Post
-            </Button>
-        </List>
-        <SideListProfileItem/>
-    </Flex>
+                <FaXTwitter size={30} 
+                            color="white"/>
+
+                <List spacing={5} fontSize={25}   > 
+                    <LeftListItem Icon={IoMdHome} ItemText={"Home"} href={"/"}/>
+                    <LeftListItem Icon={IoMdSearch} ItemText={"ُExplore"}/>
+                    <LeftListItem Icon={FaRegBell} ItemText={"Notifications"}/>
+                    <LeftListItem Icon={BiMessageSquare} ItemText={"Messages"}/>
+                    <LeftListItem Icon={MdOutlineFeaturedPlayList} ItemText={"Lists"}/>
+                    <LeftListItem Icon={PiBookmarkSimpleLight} ItemText={"Bookmarks"}/>
+                    <LeftListItem Icon={FaUserFriends} ItemText={"Communities"}/>
+                    <LeftListItem Icon={CgProfile} ItemText={"Profile"}/>
+                    <LeftListItem Icon={CiCircleMore} ItemText={"More"}/>
+                    <Button 
+                        px={10} 
+                        py={7} 
+                        w={230} 
+                        borderRadius={30} 
+                        color={"white"} 
+                        bg={"rgb(29, 155, 240)"}>
+                        Post
+                    </Button>
+                </List>
+                <SideListProfileItem/>
+            </Flex>
+        </Box>
     )
 }
 
