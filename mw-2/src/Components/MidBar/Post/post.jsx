@@ -36,7 +36,7 @@ function Post({data}){
             <CardBody pt={2}
                         pb={0}>
                 <Text color={"white"}>
-                {data.description}
+                {data.caption}
                 
                 </Text>
             </CardBody>
