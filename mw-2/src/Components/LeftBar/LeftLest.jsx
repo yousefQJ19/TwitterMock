@@ -1,4 +1,4 @@
-import { AbsoluteCenter, Box, Button, Flex, List} from "@chakra-ui/react";
+import {  Box, Button, Flex, List} from "@chakra-ui/react";
 //importing icons
 import { IoMdHome,IoMdSearch  } from "react-icons/io";
 import { FaXTwitter } from "react-icons/fa6";

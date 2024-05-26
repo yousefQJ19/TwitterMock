@@ -1,29 +1,14 @@
-import { Button,Text } from "@chakra-ui/react";
+import { Tabs,TabList,Tab,TabIndicator,TabPanels,TabPanel } from "@chakra-ui/react";
 
-function MiddleBarButton({ showBorder, setShowBorder,context }){
+function MiddleBarButton(){
     return (
-        <Button textAlign={"center"}
-                w="50%"
-                h="40px"
-                borderRadius={0}
-                bg="black"
-                color="white"
-                _hover={{ bg: "black" }}
-                onClick={(e) => {
-                    e.preventDefault();
-                    setShowBorder();
-                }}
-                _focus={{ boxShadow: "none" }}
-        >
-            <Text
-                borderBottom={showBorder ? "solid" : "none"}
-                borderColor="rgb(29, 155, 240)"
-                borderBottomWidth="3px"
-                p={3}
-            >
-                {context}
-            </Text>
-        </Button>
+        <Tabs w={"100%"} variant="unstyled">
+        <TabList  h={"50px"}>
+            <Tab color={"white"} w={"50%"}>For you</Tab>
+            <Tab color={"white"}  w={"50%"}>Following</Tab>
+        </TabList>
+        <TabIndicator mt='-1.5px' w={"100%"} height='2px' bg='rgb(29, 155, 240)' borderRadius='1px'/>
+    </Tabs>
     );
 }
 
