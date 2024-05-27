@@ -1,9 +1,9 @@
-import {Flex,Image ,Box,Input,Button,Text, Avatar} from "@chakra-ui/react"
+import {Flex,Box,Input,Button,Text, Avatar} from "@chakra-ui/react"
 import AddPostIconList from "./addPostIconList";
 import { useState } from "react";
 
 import {fireStore} from "../../../Config/FireBase-Config"
-import {getDocs,collection, addDoc} from "firebase/firestore"
+import {collection, addDoc} from "firebase/firestore"
 
 
 
@@ -14,7 +14,7 @@ function AddPost(){
 
     const onPosting = async ()=>{
         await addDoc(postListRef,{
-            description : postDescription,
+            caption : postDescription,
             likes : "100",
             uid : "kwecipmwiio"
         })
